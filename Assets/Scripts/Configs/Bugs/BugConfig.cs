@@ -1,0 +1,16 @@
+using Project.Core.Domain.Bugs;
+using UnityEngine;
+
+namespace Project.Configs.Bugs
+{
+    [CreateAssetMenu(fileName = "BugConfigSO", menuName = "Project/Configs/Bug Config", order = 1)]
+    public class BugConfig : ScriptableObject
+    {
+        [field: SerializeField] public BugType Type { get; private set; }
+        [field: SerializeField] public GameObject Prefab { get; private set; }
+        [field: SerializeField] public float MoveSpeed { get; private set; } = 1f;
+        [field: SerializeField] public float TargetSearchRadius { get; private set; } = 10f;
+        [field: SerializeField] public float EatDistance { get; private set; } = .5f;
+        [field: SerializeField] public int ReproductionThreshold { get; private set; } = 2;
+    }
+}
