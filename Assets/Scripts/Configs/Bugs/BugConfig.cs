@@ -1,4 +1,5 @@
 using Project.Core.Domain.Bugs;
+using Project.Gameplay.Bugs;
 using UnityEngine;
 
 namespace Project.Configs.Bugs
@@ -7,7 +8,7 @@ namespace Project.Configs.Bugs
     public class BugConfig : ScriptableObject
     {
         [field: SerializeField] public BugType Type { get; private set; }
-        [field: SerializeField] public GameObject Prefab { get; private set; }
+        [field: SerializeField] public BugView Prefab { get; private set; }
         [field: SerializeField] public float MoveSpeed { get; private set; } = 1f;
         [field: SerializeField] public float TargetSearchRadius { get; private set; } = 10f;
         [field: SerializeField] public float EatDistance { get; private set; } = .5f;

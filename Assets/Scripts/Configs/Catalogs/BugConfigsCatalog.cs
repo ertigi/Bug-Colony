@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Project.Configs.Catalogs
 {
     [CreateAssetMenu(fileName = "BugConfigsCatalogSO", menuName = "Project/Configs/Bug Config Catalog")]
-    public sealed class BugConfigsCatalog : ScriptableObject
+    public class BugConfigsCatalog : ScriptableObject
     {
         [SerializeField] private List<BugConfig> _configs = new();
 
@@ -15,7 +15,7 @@ namespace Project.Configs.Catalogs
 
         public IReadOnlyList<BugConfig> Configs => _configs;
 
-        public BugConfig Get(BugType type)
+        public BugConfig GetBugConfig(BugType type)
         {
             BuildCacheIfNeeded();
 

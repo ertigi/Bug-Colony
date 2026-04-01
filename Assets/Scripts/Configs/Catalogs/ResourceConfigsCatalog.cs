@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Project.Configs.Catalogs
 {
     [CreateAssetMenu(fileName = "ResourceConfigsCatalogSO", menuName = "Project/Configs/Resource Configs Catalog")]
-    public sealed class ResourceConfigsCatalog : ScriptableObject
+    public class ResourceConfigsCatalog : ScriptableObject
     {
         [SerializeField] private List<ResourceConfig> _configs = new();
 
@@ -15,7 +15,7 @@ namespace Project.Configs.Catalogs
 
         public IReadOnlyList<ResourceConfig> Configs => _configs;
 
-        public ResourceConfig Get(ResourceType type)
+        public ResourceConfig GetResourceConfig(ResourceType type)
         {
             BuildCacheIfNeeded();
 
