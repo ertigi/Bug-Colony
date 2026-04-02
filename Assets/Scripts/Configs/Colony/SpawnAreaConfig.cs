@@ -7,6 +7,7 @@ namespace Project.Configs.Colony
     {
         [field: SerializeField] public Vector3 Center { get; private set; } = Vector3.zero;
         [field: SerializeField] public Vector3 Size { get; private set; } = new Vector3(20f, 0f, 20f);
+        [field: SerializeField] public float SplitOffset { get; private set; } = 2f;
 
         public Bounds GetBounds()
         {

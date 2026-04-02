@@ -2,6 +2,7 @@ using Project.Configs.Colony;
 using Project.Core.Contracts;
 using System;
 using UnityEngine;
+using static UnityEngine.Rendering.STP;
 using Random = UnityEngine.Random;
 
 namespace Project.Gameplay.World
@@ -25,15 +26,20 @@ namespace Project.Gameplay.World
             return GetPointInsideBounds();
         }
 
-        public Vector3 GetSplitSpawnPointNear(Vector3 center)
+        public Vector3[] GetSplitSpawnPointNear(Vector3 center, int count)
         {
-            const float offsetRadius = 1f;
+            var points = new Vector3[count];
 
-            var offset = new Vector3(Random.value, 0f, Random.value);
-            offset = offset.normalized * offsetRadius;
+            for (int i = 0; i < count; i++)
+            {
+                var offset = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+                offset = offset.normalized * _config.SplitOffset;
 
-            var point = center + offset;
-            return ClampToBounds(point);
+                var point = center + offset;
+                points[i] = ClampToBounds(point);
+            }
+
+            return points;
         }
 
         private Vector3 GetPointInsideBounds()

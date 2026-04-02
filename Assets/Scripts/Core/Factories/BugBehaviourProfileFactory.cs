@@ -9,14 +9,14 @@ namespace Project.Core.Factories
 {
     public class BugBehaviourProfileFactory
     {
-        private readonly TargetService _queryService;
+        private readonly TargetService _targetService;
         private readonly ColonyRuleConfig _rulesConfig;
 
         public BugBehaviourProfileFactory(
-            TargetService queryService,
+            TargetService targetService,
             ColonyRuleConfig rulesConfig)
         {
-            _queryService = queryService ?? throw new ArgumentNullException(nameof(queryService));
+            _targetService = targetService ?? throw new ArgumentNullException(nameof(targetService));
             _rulesConfig = rulesConfig ?? throw new ArgumentNullException(nameof(rulesConfig));
         }
 
@@ -34,7 +34,7 @@ namespace Project.Core.Factories
         {
             return new BugBehaviourProfile(
                 new TransformBugMover(),
-                new BugTargetingStrategy(_queryService, BugType.Worker),
+                new WorkerTargetingStrategy(_targetService, BugType.Worker),
                 new WorkerFeedingStrategy(),
                 new BugReproductionStrategy(_rulesConfig.WorkerSplitThreshold, _rulesConfig.WorkerSplitOffspring, BugType.Worker),
                 new WorkerToPredatorMutationStrategy(_rulesConfig),
@@ -45,7 +45,7 @@ namespace Project.Core.Factories
         {
             return new BugBehaviourProfile(
                 new TransformBugMover(),
-                new BugTargetingStrategy(_queryService, BugType.Predator),
+                new PredatorTargetingStrategy(_targetService, BugType.Predator),
                 new PredatorFeedingStrategy(),
                 new BugReproductionStrategy(_rulesConfig.PredatorSplitThreshold, _rulesConfig.PredatorSplitOffspring, BugType.Predator),
                 new NoMutationStrategy(),

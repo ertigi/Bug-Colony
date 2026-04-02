@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 2
   <Prefab>k__BackingField: {fileID: 4339688871445603889, guid: a84343b52aee8e14081542d5704809ba, type: 3}
-  <MoveSpeed>k__BackingField: 1.5
+  <MoveSpeed>k__BackingField: 2
   <TargetSearchRadius>k__BackingField: 10
   <EatDistance>k__BackingField: 0.5
   <NutritionValue>k__BackingField: 1

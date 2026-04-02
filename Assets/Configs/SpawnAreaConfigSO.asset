@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Center>k__BackingField: {x: 0, y: 0, z: 0}
   <Size>k__BackingField: {x: 20, y: 0, z: 20}
+  <SplitOffset>k__BackingField: 2

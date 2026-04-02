@@ -4,6 +4,7 @@ using Project.Core.Domain.Colony;
 using Project.Core.Runtime;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Project.Gameplay.World
 {
@@ -18,10 +19,16 @@ namespace Project.Gameplay.World
             _resourceRegistry = resourceRegistry ?? throw new ArgumentNullException(nameof(resourceRegistry));
         }
 
-        public ITargetable GetTargets(BugRuntime self, BugType bugType)
+        public ITargetable GetNearestTargets(BugRuntime self, BugType bugType)
         {
             var targets = bugType == BugType.Worker ? ConsumableTargetsForWorker() : ConsumableTargetsForPredator(self);
             return NearestTarget(targets, self);
+        }
+
+        public ITargetable GetRandomTargets(BugRuntime self, BugType bugType)
+        {
+            var targets = bugType == BugType.Worker ? ConsumableTargetsForWorker() : ConsumableTargetsForPredator(self);
+            return RandomTarget(targets);
         }
 
         private ITargetable NearestTarget(List<ITargetable> targets, BugRuntime self)
@@ -43,6 +50,15 @@ namespace Project.Gameplay.World
             }
 
             return bestTarget;
+        }
+
+        private ITargetable RandomTarget(List<ITargetable> targets)
+        {
+            if(targets == null || targets.Count == 0)
+                return null;
+
+            var rand = UnityEngine.Random.Range(0, targets.Count);
+            return targets[rand];
         }
 
         private List<ITargetable> ConsumableTargetsForWorker()

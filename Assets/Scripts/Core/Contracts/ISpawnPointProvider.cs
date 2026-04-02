@@ -6,6 +6,6 @@ namespace Project.Core.Contracts
     {
         Vector3 GetRandomBugSpawnPoint();
         Vector3 GetRandomResourceSpawnPoint();
-        Vector3 GetSplitSpawnPointNear(Vector3 center);
+        Vector3[] GetSplitSpawnPointNear(Vector3 center, int count);
     }
 }

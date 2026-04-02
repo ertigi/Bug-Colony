@@ -5,12 +5,12 @@ using Project.Gameplay.World;
 
 namespace Project.Gameplay.Bugs
 {
-    public class BugTargetingStrategy : ITargetingStrategy
+    public class PredatorTargetingStrategy : ITargetingStrategy
     {
         private readonly TargetService _targetService;
         private readonly BugType _bugType;
 
-        public BugTargetingStrategy(TargetService targetService, BugType bugType)
+        public PredatorTargetingStrategy(TargetService targetService, BugType bugType)
         {
             _targetService = targetService;
             _bugType = bugType;
@@ -18,7 +18,7 @@ namespace Project.Gameplay.Bugs
 
         public ITargetable SelectTarget(BugRuntime self)
         {
-            return _targetService.GetTargets(self, _bugType);
+            return _targetService.GetNearestTargets(self, _bugType);
         }
     }
 }

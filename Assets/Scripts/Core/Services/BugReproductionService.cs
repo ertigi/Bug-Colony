@@ -38,11 +38,11 @@ namespace Project.Core.Services
                 return false;
 
             var descriptors = new List<OffspringDescriptor>(count);
+            var positions = _spawnPointProvider.GetSplitSpawnPointNear(parent.Position, count);
 
             for (var i = 0; i < count; i++)
             {
-                var position = _spawnPointProvider.GetSplitSpawnPointNear(parent.Position);
-                descriptors.Add(new OffspringDescriptor(policy.GetBaseOffspringType(), position));
+                descriptors.Add(new OffspringDescriptor(policy.GetBaseOffspringType(), positions[i]));
             }
 
             parent.MutationStrategy?.MutateOffspring(descriptors, parent, _bugsRegistry);
