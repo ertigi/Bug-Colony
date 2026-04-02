@@ -20,6 +20,11 @@ namespace Project.Installers
 
             Container.Bind<DeathStatisticsService>().AsSingle();
 
+            Container.Bind<BugSimulationService>().AsSingle();
+            Container.Bind<BugLifetimeService>().AsSingle();
+            Container.Bind<BugConsumptionService>().AsSingle();
+            Container.Bind<BugReproductionService>().AsSingle();
+            Container.Bind<BugDeathService>().AsSingle();
             Container.Bind<BugService>().AsSingle();
 
             Container.Bind<ResourceService>().AsSingle();

@@ -38,10 +38,10 @@ namespace Project.Core.Factories
                 view,
                 profile.Mover,
                 profile.TargetingStrategy,
-                profile.FeedingPolicy,
-                profile.ReproductionPolicy,
-                profile.MutationPolicy,
-                profile.LifetimePolicy);
+                profile.FeedingStrategy,
+                profile.ReproductionStrategy,
+                profile.MutationStrategy,
+                profile.LifetimeStrategy);
 
             runtime.SetPosition(position);
             runtime.Show();

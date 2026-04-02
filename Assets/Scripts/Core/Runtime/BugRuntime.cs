@@ -16,10 +16,10 @@ namespace Project.Core.Runtime
         public IBugView View { get; }
         public IBugMover Mover { get; }
         public ITargetingStrategy TargetingStrategy { get; }
-        public IFeedingStrategy FeedingPolicy { get; }
-        public IReproductionStrategy ReproductionPolicy { get; }
-        public IMutationStrategy MutationPolicy { get; }
-        public ILifetimeStrategy LifetimePolicy { get; }
+        public IFeedingStrategy FeedingStrategy { get; }
+        public IReproductionStrategy ReproductionStrategy { get; }
+        public IMutationStrategy MutationStrategy { get; }
+        public ILifetimeStrategy LifetimeStrategy { get; }
 
         public CompositeDisposable Disposables { get; } = new();
         public ITargetable CurrentTarget { get; private set; }
@@ -34,19 +34,19 @@ namespace Project.Core.Runtime
             IBugView view,
             IBugMover mover,
             ITargetingStrategy targetingStrategy,
-            IFeedingStrategy feedingPolicy,
-            IReproductionStrategy reproductionPolicy,
-            IMutationStrategy mutationPolicy,
-            ILifetimeStrategy lifetimePolicy)
+            IFeedingStrategy feedingStrategy,
+            IReproductionStrategy reproductionStrategy,
+            IMutationStrategy mutationStrategy,
+            ILifetimeStrategy lifetimeStrategy)
         {
             Model = model ?? throw new ArgumentNullException(nameof(model));
             View = view ?? throw new ArgumentNullException(nameof(view));
             Mover = mover ?? throw new ArgumentNullException(nameof(mover));
             TargetingStrategy = targetingStrategy ?? throw new ArgumentNullException(nameof(targetingStrategy));
-            FeedingPolicy = feedingPolicy ?? throw new ArgumentNullException(nameof(feedingPolicy));
-            ReproductionPolicy = reproductionPolicy ?? throw new ArgumentNullException(nameof(reproductionPolicy));
-            MutationPolicy = mutationPolicy ?? throw new ArgumentNullException(nameof(mutationPolicy));
-            LifetimePolicy = lifetimePolicy ?? throw new ArgumentNullException(nameof(lifetimePolicy));
+            FeedingStrategy = feedingStrategy ?? throw new ArgumentNullException(nameof(feedingStrategy));
+            ReproductionStrategy = reproductionStrategy ?? throw new ArgumentNullException(nameof(reproductionStrategy));
+            MutationStrategy = mutationStrategy ?? throw new ArgumentNullException(nameof(mutationStrategy));
+            LifetimeStrategy = lifetimeStrategy ?? throw new ArgumentNullException(nameof(lifetimeStrategy));
         }
 
         public void SetPosition(Vector3 position)

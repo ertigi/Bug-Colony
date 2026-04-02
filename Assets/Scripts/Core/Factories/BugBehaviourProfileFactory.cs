@@ -56,25 +56,25 @@ namespace Project.Core.Factories
     {
         public IBugMover Mover { get; }
         public ITargetingStrategy TargetingStrategy { get; }
-        public IFeedingStrategy FeedingPolicy { get; }
-        public IReproductionStrategy ReproductionPolicy { get; }
-        public IMutationStrategy MutationPolicy { get; }
-        public ILifetimeStrategy LifetimePolicy { get; }
+        public IFeedingStrategy FeedingStrategy { get; }
+        public IReproductionStrategy ReproductionStrategy { get; }
+        public IMutationStrategy MutationStrategy { get; }
+        public ILifetimeStrategy LifetimeStrategy { get; }
 
         public BugBehaviourProfile(
             IBugMover mover,
             ITargetingStrategy targetingStrategy,
-            IFeedingStrategy feedingPolicy,
-            IReproductionStrategy reproductionPolicy,
-            IMutationStrategy mutationPolicy,
-            ILifetimeStrategy lifetimePolicy)
+            IFeedingStrategy feedingStrategy,
+            IReproductionStrategy reproductionStrategy,
+            IMutationStrategy mutationStrategy,
+            ILifetimeStrategy lifetimeStrategy)
         {
             Mover = mover;
             TargetingStrategy = targetingStrategy;
-            FeedingPolicy = feedingPolicy;
-            ReproductionPolicy = reproductionPolicy;
-            MutationPolicy = mutationPolicy;
-            LifetimePolicy = lifetimePolicy;
+            FeedingStrategy = feedingStrategy;
+            ReproductionStrategy = reproductionStrategy;
+            MutationStrategy = mutationStrategy;
+            LifetimeStrategy = lifetimeStrategy;
         }
     }
 }
