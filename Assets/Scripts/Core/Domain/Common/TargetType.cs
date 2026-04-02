@@ -4,6 +4,6 @@ namespace Project.Core.Domain.Common
     {
         None = 0,
         Resource = 1,
-        Bugs = 2,
+        Bug = 2,
     }
 }

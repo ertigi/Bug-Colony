@@ -5,6 +5,8 @@ namespace Project.Core.Contracts
 {
     public interface IReproductionStrategy
     {
-        bool Reproduce(BugModel model);
+        BugType GetBaseOffspringType();
+        int GetOffspringCount();
+        bool ShouldReproduce(BugModel model);
     }
 }

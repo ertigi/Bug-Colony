@@ -1,4 +1,5 @@
 using Project.Core.Contracts;
+using Project.Core.Domain.Common;
 using UnityEngine;
 
 namespace Project.Gameplay.Bugs
