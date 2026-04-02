@@ -66,7 +66,7 @@ namespace Project.Core.Runtime
 
         public void MoveTowardsCurrentTarget(float deltaTime)
         {
-            if (CurrentTarget == null)
+            if (CurrentTarget == null || !CurrentTarget.IsAvailable)
             {
                 return;
             }
@@ -77,7 +77,8 @@ namespace Project.Core.Runtime
         public bool HasReachedCurrentTarget()
         {
             return CurrentTarget != null &&
-                   Mover.HasReached(View, CurrentTarget.Position, Model.Config.EatDistance);
+                CurrentTarget.IsAvailable &&
+                Mover.HasReached(View, CurrentTarget.Position, Model.Config.EatDistance);
         }
 
         public bool TryMarkDead()
