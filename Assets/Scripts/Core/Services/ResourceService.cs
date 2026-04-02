@@ -78,6 +78,7 @@ namespace Project.Core.Services
 
         public void Dispose()
         {
+            _resourceRegistry.Clear();
             _resourceViewPool.Clear();
         }
     }

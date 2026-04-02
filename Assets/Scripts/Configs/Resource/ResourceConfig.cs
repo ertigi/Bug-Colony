@@ -11,6 +11,5 @@ namespace Project.Configs.Resources
         [field: SerializeField] public ResourceType Type { get; private set; }
         [field: SerializeField] public ResourceView Prefab { get; private set; }
         [field: SerializeField] public int NutritionValue { get; private set; } = 1;
-        [field: SerializeField] public float InteractionRadius { get; private set; } = .5f;
     }
 }

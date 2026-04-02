@@ -4,7 +4,6 @@ using Project.Core.Domain.Resources;
 using Project.Core.Runtime;
 using Project.Gameplay.Resources.Views;
 using System;
-using UnityEditor;
 using UnityEngine;
 
 namespace Project.Core.Factories

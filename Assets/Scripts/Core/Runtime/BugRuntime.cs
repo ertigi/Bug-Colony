@@ -106,8 +106,9 @@ namespace Project.Core.Runtime
             if (!_lifetimeCts.IsCancellationRequested)
                 _lifetimeCts.Cancel();
 
+            _lifetimeCts.Dispose();
             Disposables.Dispose();
             CurrentTarget = null;
-        }
+        } 
     }
 }

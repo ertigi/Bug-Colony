@@ -28,7 +28,7 @@ namespace Project.Core.Services
             {
                 await UniTask.Delay(
                     TimeSpan.FromSeconds(lifetimeSeconds),
-                    cancellationToken: bug.LifetimeToken);
+                    cancellationToken: token);
 
                 if (bug.Model.IsAlive)
                     onExpired?.Invoke(bug);
