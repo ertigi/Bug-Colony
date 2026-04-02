@@ -7,8 +7,12 @@ namespace Project.Configs.Colony
     public class ColonyRuleConfig : ScriptableObject
     {
         [field: Header("Reproduction")]
+        [field: Header("Split Threshold")]
         [field: SerializeField, Min(1)] public int WorkerSplitThreshold { get; private set; } = 2;
         [field: SerializeField, Min(1)] public int PredatorSplitThreshold { get; private set; } = 3;
+        [field: Header("Split Offspring")]
+        [field: SerializeField, Min(1)] public int WorkerSplitOffspring { get; private set; } = 2;
+        [field: SerializeField, Min(1)] public int PredatorSplitOffspring { get; private set; } = 2;
 
 
         [field: Header("Mutation")]

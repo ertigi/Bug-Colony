@@ -12,7 +12,6 @@ namespace Project.Configs.Bugs
         [field: SerializeField] public float MoveSpeed { get; private set; } = 1f;
         [field: SerializeField] public float TargetSearchRadius { get; private set; } = 10f;
         [field: SerializeField] public float EatDistance { get; private set; } = .5f;
-        [field: SerializeField] public int ReproductionThreshold { get; private set; } = 2;
         [field: SerializeField] public int NutritionValue { get; private set; } = 1;
     }
 }

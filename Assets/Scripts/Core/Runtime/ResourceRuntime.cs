@@ -40,10 +40,5 @@ namespace Project.Core.Runtime
         {
             View.Hide();
         }
-
-        public void ResetView()
-        {
-            View.ResetView();
-        }
     }
 }

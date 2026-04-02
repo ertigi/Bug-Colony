@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Project.Gameplay.Bugs
 {
-    public sealed class BugViewPool
+    public class BugViewPool
     {
         private readonly BugConfigsCatalog _catalog;
         private readonly Dictionary<BugType, Stack<BugView>> _pool = new();

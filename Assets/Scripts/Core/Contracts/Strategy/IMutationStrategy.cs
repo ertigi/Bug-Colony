@@ -6,6 +6,6 @@ namespace Project.Core.Contracts
 {
     public interface IMutationStrategy
     {
-        void MutateOffspring(List<OffspringDescriptor> offspring, BugRuntime parent, ColonyRegistry colonyRegistry);
+        void MutateOffspring(List<OffspringDescriptor> offspring, BugRuntime parent, BugsRegistry bugsRegistry);
     }
 }

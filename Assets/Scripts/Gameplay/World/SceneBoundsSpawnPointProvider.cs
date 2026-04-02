@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace Project.Gameplay.World
 {
-    public sealed class SceneBoundsSpawnPointProvider : ISpawnPointProvider
+    public class SceneBoundsSpawnPointProvider : ISpawnPointProvider
     {
         private readonly SpawnAreaConfig _config;
 

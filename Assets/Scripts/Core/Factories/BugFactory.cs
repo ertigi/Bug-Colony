@@ -12,13 +12,13 @@ namespace Project.Core.Factories
     {
         private readonly BugConfigsCatalog _catalog;
         private readonly BugViewPool _viewPool;
-        private readonly BugBehaviourFactory _profileFactory;
+        private readonly BugBehaviourProfileFactory _profileFactory;
         private int _counter = 0;
 
         public BugFactory(
             BugConfigsCatalog catalog,
             BugViewPool viewPool,
-            BugBehaviourFactory profileFactory)
+            BugBehaviourProfileFactory profileFactory)
         {
             _catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
             _viewPool = viewPool ?? throw new ArgumentNullException(nameof(viewPool));

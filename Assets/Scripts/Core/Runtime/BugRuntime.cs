@@ -103,11 +103,8 @@ namespace Project.Core.Runtime
         public void Dispose()
         {
             if (!_lifetimeCts.IsCancellationRequested)
-            {
                 _lifetimeCts.Cancel();
-            }
 
-            _lifetimeCts.Dispose();
             Disposables.Dispose();
             CurrentTarget = null;
         }
