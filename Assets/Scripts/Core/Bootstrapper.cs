@@ -22,7 +22,7 @@ namespace Project.Core.Bootstrap
         public void Start(CancellationToken sceneToken)
         {
             _resourceSpawnService.Start(sceneToken);
-            _bugService.StartColony();
+            _bugService.StartColony(sceneToken);
         }
     }
 }

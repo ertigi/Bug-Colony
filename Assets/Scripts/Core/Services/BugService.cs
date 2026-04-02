@@ -7,10 +7,12 @@ using Project.Core.Runtime;
 using Project.Gameplay.Bugs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 namespace Project.Core.Services
 {
-    public class BugService
+    public class BugService : IDisposable
     {
         private readonly BugsRegistry _bugsRegistry;
         private readonly IBugFactory _bugFactory;
@@ -21,6 +23,7 @@ namespace Project.Core.Services
         private readonly BugDeathService _bugDeathService;
         private readonly BugConsumptionService _bugConsumptionService;
         private readonly BugReproductionService _bugReproductionService;
+        private CancellationToken _token;
         private bool _isSpawning;
 
         public BugService(
@@ -45,8 +48,9 @@ namespace Project.Core.Services
             _bugReproductionService = bugReproductionService ?? throw new ArgumentNullException(nameof(bugReproductionService));
         }
 
-        public void StartColony()
+        public void StartColony(CancellationToken token)
         {
+            _token = token;
             var startPosition = _spawnPointProvider.GetRandomBugSpawnPoint();
             var bug = _bugFactory.Spawn(BugType.Worker, startPosition);
             Activate(bug);
@@ -58,8 +62,8 @@ namespace Project.Core.Services
                 return;
 
             _bugsRegistry.Register(bug);
-            _bugSimulationService.Run(bug, OnTargetReached);
-            _bugLifetimeService.Run(bug, OnLifetimeExpired);
+            _bugSimulationService.Run(bug, OnTargetReached, _token);
+            _bugLifetimeService.Run(bug, OnLifetimeExpired, _token);
         }
 
         private void Kill(BugRuntime bug, BugDeathReason reason)
@@ -108,6 +112,14 @@ namespace Project.Core.Services
             Activate(bug);
 
             _isSpawning = false;
+        }
+
+        public void Dispose()
+        {
+            foreach (var bug in _bugsRegistry.AliveBugs.ToArray())
+                bug.Dispose();
+
+            _bugsRegistry.Clear();
         }
     }
 }

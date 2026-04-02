@@ -1,4 +1,5 @@
 using Project.Core.Bootstrap;
+using Project.Core.Services;
 using System;
 using System.Threading;
 
@@ -22,9 +23,7 @@ namespace Project.Installers
         public void Dispose()
         {
             if (!_sceneCts.IsCancellationRequested)
-            {
                 _sceneCts.Cancel();
-            }
 
             _sceneCts.Dispose();
         }

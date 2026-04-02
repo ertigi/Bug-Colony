@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace Project.Core.Services
 {
-    public class ResourceService
+    public class ResourceService : IDisposable
     {
         private readonly IResourceFactory _resourceFactory;
         private readonly ISpawnPointProvider _spawnPointProvider;
@@ -74,6 +74,11 @@ namespace Project.Core.Services
             {
 
             }
+        }
+
+        public void Dispose()
+        {
+            _resourceViewPool.Clear();
         }
     }
 }

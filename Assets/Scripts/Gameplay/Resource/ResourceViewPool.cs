@@ -65,5 +65,10 @@ namespace Project.Gameplay.Resources.Views
             view.transform.SetParent(_poolRoot);
             stack.Push(view);
         }
+
+        public void Clear()
+        {
+            _pool.Clear();
+        }
     }
 }
